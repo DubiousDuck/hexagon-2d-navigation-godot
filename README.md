@@ -1,3 +1,5 @@
+<img src="HexNaviIcon.png" alt="icon"/>
+
 # Hexagon TileMapLayer Navigation Class
 This is a Godot plugin that adds a global class that handles navigation on 2D [TileMapLayers](https://docs.godotengine.org/en/stable/classes/class_tilemaplayer.html) with Hexagon tiles.
 
