@@ -22,6 +22,8 @@ Here are some initial steps to set up the class properly:
 - Call `HexNavi.set_current_map()` at the beginning of your script and use the TileMapLayer you just set up as the input
 - Congrats! You have successfully set up the navigation system. You can now call whichever functions in [the documentation](https://docs.google.com/document/d/1HwLlRmC2tDGbadkOEero5asVq6XmzpupeJX_pUEwqGg/edit?usp=sharing) that you see fit.
 
+(Demo project coming soon...)
+
 ## Contact
 
 If you have any questions, comments, and suggestions, please don't hesitate to reach out to <oscar517730@gmail.com>
