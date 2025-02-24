@@ -45,7 +45,7 @@ func global_to_cell(global_pos : Vector2) -> Vector2i: #returns local cell posit
 	var local_map_pos := current_map.local_to_map(current_map.to_local(global_pos))
 	var closest_point_id = astar.get_closest_point(local_map_pos)
 	var closest_cell: Vector2i = astar.get_point_position(closest_point_id)
-	if local_map_pos != closest_cell: #prevents returning nonexistent cell #TODO: Prob not the most optimal solution
+	if local_map_pos != closest_cell: #prevents returning nonexistent cell
 		return Vector2i(-999, -999)
 	return closest_cell 
 
@@ -70,19 +70,6 @@ func get_navi_path(start_pos : Vector2i, end_pos : Vector2i) -> PackedVector2Arr
 	var path_taken = astar.get_point_path(start_id, goal_id)
 	return path_taken
 
-## Highlights cells of a given path; debugging function
-func show_path(path : Array[Vector2i]):
-	for index in range(0, path.size()):
-		if index == 0 or index == path.size()-1:
-			current_map.set_cell_to_variant(1, path[index]) #variant depends on each map layer
-		else:
-			current_map.set_cell_to_variant(2, path[index])
-
-## Clear all markings on the map; debugging function
-func clear_path(): 
-	var all_cells = current_map.get_used_cells()
-	for cell in all_cells:
-		current_map.set_cell_to_variant(0, cell)
 
 ## Use a tile position to get the id for AStar usage
 func tile_to_id(pos: Vector2i) -> int: 
@@ -97,6 +84,7 @@ func id_to_tile(id: int) -> Vector2i:
 		return astar.get_point_position(id)
 	return Vector2i(-1, -1)
 
+## Returns the number of tile between [param pos1] and [param pos2]
 func get_distance(pos1: Vector2i, pos2: Vector2i) -> int:
 	var all_points = get_navi_path(pos1, pos2)
 	return all_points.size() - 1 #excluding the first point
@@ -114,7 +102,7 @@ func get_all_neighbors_in_range(start_pos: Vector2i, range: int, traversable_onl
 	return answer
 	
 func _dfs(k : int, node_id : int, parent_id : int, solution_arr : Array, traversable_only : bool): #helper recursive function
-	#godot seems to pass array by reference by default
+	#Godot passes array by reference by default
 	if k < 0 or node_id == -1:
 		return
 	if traversable_only:
@@ -130,5 +118,3 @@ func _dfs(k : int, node_id : int, parent_id : int, solution_arr : Array, travers
 func get_random_tile_pos() -> Vector2: #for testing and placeholder purposes
 	return astar.get_point_position(randi_range(0, astar.get_point_count()))
 	
-func get_random_tile_from(start: Vector2i, range : int):
-	pass
