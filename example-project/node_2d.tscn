@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=4 uid="uid://b13d0jrmvxico"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_bmw6h"]
+[ext_resource type="Texture2D" uid="uid://bu208qujyiisj" path="res://hex_grid.png" id="2_qjwoi"]
+[ext_resource type="Script" path="res://tile_map_layer.gd" id="3_mrlmr"]
+[ext_resource type="Script" path="res://target.gd" id="4_jrbg8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yxoj"]
+texture = ExtResource("2_qjwoi")
+margins = Vector2i(9, 8)
+separation = Vector2i(18, 1)
+texture_region_size = Vector2i(110, 94)
+2:0/0 = 0
+2:0/0/custom_data_0 = true
+1:1/0 = 0
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+1:0/0/custom_data_1 = true
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+0:0/0/custom_data_1 = true
+0:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_njwl0"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(102, 94)
+custom_data_layer_0/name = "traversable"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "occupied"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_8yxoj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgoib"]
+size = Vector2(38, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsdla"]
+size = Vector2(51.5, 39)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("tile_map")]
+script = ExtResource("1_bmw6h")
+tile_map = NodePath("TileMapLayer")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD+/wEAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAD///7/AAACAAAAAAD/////AAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAABAP7/AAACAAAAAAABAP//AAACAAAAAAABAAAAAAACAAAAAAABAAEAAAACAAAAAAACAAEAAAACAAAAAAACAAAAAAACAAAAAAACAP//AAACAAAAAAADAP7/AAACAAAAAAADAP//AAACAAAAAAADAAAAAAACAAAAAAADAAEAAAACAAAAAAD+/wIAAAACAAAAAAAAAP7/AAACAAAAAAACAAIAAAACAAAAAAAAAP//AAACAAAAAAD8////AAACAAAAAAD7////AAACAAAAAAD7/wAAAAACAAAAAAD8/wEAAAACAAAAAAAEAP//AAACAAAAAAAFAP//AAACAAAAAAAFAAAAAAACAAAAAAAFAAEAAAACAAAAAAAEAAIAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_njwl0")
+script = ExtResource("3_mrlmr")
+
+[node name="ObstacleFolder" type="Node2D" parent="."]
+
+[node name="Obstacle" type="Node2D" parent="ObstacleFolder"]
+visible = false
+position = Vector2(-24, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="Obstacle2" type="Node2D" parent="ObstacleFolder"]
+visible = false
+position = Vector2(128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-176, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_dgoib")
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.5
+offset_right = 20.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.273873, 0.273873, 0.273873, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Target" type="Area2D" parent="."]
+visible = false
+position = Vector2(128, 1)
+script = ExtResource("4_jrbg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource("RectangleShape2D_lsdla")
+
+[node name="ColorRect2" type="ColorRect" parent="Target"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -21.0
+offset_right = 26.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.300575, 0.566189, 0.947794, 1)
+
+[connection signal="body_entered" from="Target" to="Target" method="_on_body_entered"]
