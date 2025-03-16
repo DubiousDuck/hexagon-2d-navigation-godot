@@ -78,20 +78,6 @@ func get_navi_path(start_pos : Vector2i, end_pos : Vector2i) -> PackedVector2Arr
 	var path_taken = astar.get_point_path(start_id, goal_id)
 	return path_taken
 
-## Highlights cells of a given path; debugging function TODO: REMOVE THIS IN FINAL VERSION
-func show_path(path : Array[Vector2i]):
-	for index in range(0, path.size()):
-		if index == 0 or index == path.size()-1:
-			current_map.set_cell_to_variant(1, path[index]) #variant depends on each map layer
-		else:
-			current_map.set_cell_to_variant(2, path[index])
-
-## Clear all markings on the map; debugging function TODO: REMOVE THIS IN FINAL VERSION
-func clear_path(): 
-	var all_cells = current_map.get_used_cells()
-	for cell in all_cells:
-		current_map.set_cell_to_variant(0, cell)
-
 ## Use a tile position to get the id for AStar usage
 func tile_to_id(pos: Vector2i) -> int: 
 	#assuming that all available tiles are already mapped in astar
