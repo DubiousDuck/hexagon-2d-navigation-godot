@@ -30,6 +30,14 @@ func add_all_point():
 			var neighbor_id = astar.get_closest_point(neighbor)
 			astar.connect_points(point_id, neighbor_id)
 
+## Set the [member weight_scale] of all tiles in the data layer with [param layer_name] that meet [param condition] to [param new_weight]
+func set_weight_of_layer(layer_name: String, condition: Variant, new_weight: float) -> void:
+	var all_point_id = astar.get_point_ids()
+	for id in all_point_id:
+		var tile = id_to_tile(id)
+		if get_cell_custom_data(tile, layer_name) == condition:
+			astar.set_point_weight_scale(id, new_weight)
+	
 #general process of converting global position to a cell position
 	#1. convert global position to map node's local
 	#2. convert map node's local to map coordinates
@@ -70,6 +78,19 @@ func get_navi_path(start_pos : Vector2i, end_pos : Vector2i) -> PackedVector2Arr
 	var path_taken = astar.get_point_path(start_id, goal_id)
 	return path_taken
 
+## Highlights cells of a given path; debugging function TODO: REMOVE THIS IN FINAL VERSION
+func show_path(path : Array[Vector2i]):
+	for index in range(0, path.size()):
+		if index == 0 or index == path.size()-1:
+			current_map.set_cell_to_variant(1, path[index]) #variant depends on each map layer
+		else:
+			current_map.set_cell_to_variant(2, path[index])
+
+## Clear all markings on the map; debugging function TODO: REMOVE THIS IN FINAL VERSION
+func clear_path(): 
+	var all_cells = current_map.get_used_cells()
+	for cell in all_cells:
+		current_map.set_cell_to_variant(0, cell)
 
 ## Use a tile position to get the id for AStar usage
 func tile_to_id(pos: Vector2i) -> int: 
@@ -84,37 +105,45 @@ func id_to_tile(id: int) -> Vector2i:
 		return astar.get_point_position(id)
 	return Vector2i(-1, -1)
 
-## Returns the number of tile between [param pos1] and [param pos2]
 func get_distance(pos1: Vector2i, pos2: Vector2i) -> int:
 	var all_points = get_navi_path(pos1, pos2)
 	return all_points.size() - 1 #excluding the first point
 
-## Returns all neighbor cells of a given cell at [param start_pos] within [param range].[br] Use [param traversable_only] to decide whether to include intraversable cells in search.
-func get_all_neighbors_in_range(start_pos: Vector2i, range: int, traversable_only: bool = true) -> Array[Vector2i]:
+## Returns all neighbor cells of a given cell at [param start_pos] within [param range].
+func get_all_neighbors_in_range(start_pos: Vector2i, range: int, max_weight: float = 1) -> Array[Vector2i]:
 	#returns an array of cell ID
 	#employs a depth first search
 	var all_neighbors_id : Array[int] = []
 	var starting_cell_id = tile_to_id(start_pos)
-	_dfs(range, starting_cell_id, starting_cell_id, all_neighbors_id, traversable_only)
+	_dfs(range, starting_cell_id, starting_cell_id, all_neighbors_id, max_weight)
 	var all_neighbors_pos = all_neighbors_id.map(id_to_tile)
 	var answer: Array[Vector2i]
 	answer.assign(all_neighbors_pos)
 	return answer
 	
-func _dfs(k : int, node_id : int, parent_id : int, solution_arr : Array, traversable_only : bool): #helper recursive function
-	#Godot passes array by reference by default
+func _dfs(k : int, node_id : int, parent_id : int, solution_arr : Array, max_weight: float): #helper recursive function
+	#godot seems to pass array by reference by default
 	if k < 0 or node_id == -1:
 		return
-	if traversable_only:
-		if !get_cell_custom_data(id_to_tile(node_id), "traversable"):
-			return
+	if astar.get_point_weight_scale(node_id) > max_weight:
+		return
 	if !solution_arr.has(node_id):
 		solution_arr.append(node_id)
 	for neighbor_pos in current_map.get_surrounding_cells(astar.get_point_position(node_id)):
 		var neighbor_id = tile_to_id(neighbor_pos)
 		if neighbor_id != parent_id:
-			_dfs(k-1, neighbor_id, node_id, solution_arr, traversable_only)
-	
+			_dfs(k-1, neighbor_id, node_id, solution_arr, max_weight)
+
+## Return all tiles with [param value] in the custom data value with name [param custom_data_name]
+func get_all_tile_with_layer(custom_data_name: String, value: Variant) -> Array[Vector2i]:
+	var valid_tiles: Array[Vector2i] = []
+	var all_point_id = astar.get_point_ids()
+	for id in all_point_id:
+		var tile = id_to_tile(id)
+		if get_cell_custom_data(tile, custom_data_name) == value:
+			valid_tiles.append(tile)
+	return valid_tiles
+
+## Returns a random tile from the registered tile set
 func get_random_tile_pos() -> Vector2: #for testing and placeholder purposes
 	return astar.get_point_position(randi_range(0, astar.get_point_count()-1))
-	

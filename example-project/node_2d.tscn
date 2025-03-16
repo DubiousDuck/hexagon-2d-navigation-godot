@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://b13d0jrmvxico"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_bmw6h"]
+[ext_resource type="Script" uid="uid://btl2bpckbi3s8" path="res://node_2d.gd" id="1_bmw6h"]
 [ext_resource type="Texture2D" uid="uid://bu208qujyiisj" path="res://hex_grid.png" id="2_qjwoi"]
-[ext_resource type="Script" path="res://tile_map_layer.gd" id="3_mrlmr"]
-[ext_resource type="Script" path="res://target.gd" id="4_jrbg8"]
+[ext_resource type="Script" uid="uid://lei1do7w1qh5" path="res://tile_map_layer.gd" id="3_mrlmr"]
+[ext_resource type="Script" uid="uid://c5rwfocyhltml" path="res://target.gd" id="4_jrbg8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yxoj"]
 texture = ExtResource("2_qjwoi")
@@ -14,7 +14,6 @@ texture_region_size = Vector2i(110, 94)
 2:0/0/custom_data_0 = true
 1:1/0 = 0
 1:0/0 = 0
-1:0/0/custom_data_0 = true
 1:0/0/custom_data_1 = true
 0:0/0 = 0
 0:0/0/custom_data_0 = true

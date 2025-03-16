@@ -64,6 +64,6 @@ func randomize_target_and_obstacles():
 		obstacle.global_position = HexNavi.cell_to_global(HexNavi.get_random_tile_pos())
 		obstacle.visible = true
 		var obs_tile := HexNavi.global_to_cell(obstacle.global_position)
-		var inpassable_region := HexNavi.get_all_neighbors_in_range(obs_tile, 1)
-		for tile in inpassable_region:
-			$TileMapLayer.set_cell_to_variant(1, tile)
+		$TileMapLayer.set_cell_to_variant(1, obs_tile)
+	HexNavi.set_weight_of_layer("traversable", false, 999)
+	HexNavi.set_weight_of_layer("traversable", true, 1)
