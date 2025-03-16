@@ -120,6 +120,216 @@ rotation = -0.785398
 pivot_offset = Vector2(35, 5)
 color = Color(0, 0, 0, 1)
 
+[node name="Obstacle3" type="Node2D" parent="ObstacleFolder"]
+position = Vector2(128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="Obstacle4" type="Node2D" parent="ObstacleFolder"]
+position = Vector2(128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="Obstacle5" type="Node2D" parent="ObstacleFolder"]
+position = Vector2(128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="Obstacle6" type="Node2D" parent="ObstacleFolder"]
+position = Vector2(128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="Obstacle7" type="Node2D" parent="ObstacleFolder"]
+position = Vector2(128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle7"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle7"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="Obstacle8" type="Node2D" parent="ObstacleFolder"]
+position = Vector2(128, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ObstacleFolder/Obstacle8"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ObstacleFolder/Obstacle8"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(35, 5)
+color = Color(0, 0, 0, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(-176, 0)
 

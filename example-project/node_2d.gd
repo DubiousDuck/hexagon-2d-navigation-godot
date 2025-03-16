@@ -57,11 +57,15 @@ func _input(event):
 func randomize_target_and_obstacles():
 	# set target to a random position
 	var target_location := HexNavi.get_random_tile_pos()
+	while target_location == char.global_position:
+		target_location = HexNavi.get_random_tile_pos()
 	$Target.global_position = HexNavi.cell_to_global(target_location)
 	$Target.visible = true
 	#randomize obstacles
 	for obstacle in $ObstacleFolder.get_children():
 		obstacle.global_position = HexNavi.cell_to_global(HexNavi.get_random_tile_pos())
+		while obstacle.global_position == $Target.global_position or obstacle.global_position == char.global_position:
+			obstacle.global_position = HexNavi.cell_to_global(HexNavi.get_random_tile_pos())
 		obstacle.visible = true
 		var obs_tile := HexNavi.global_to_cell(obstacle.global_position)
 		$TileMapLayer.set_cell_to_variant(1, obs_tile)
