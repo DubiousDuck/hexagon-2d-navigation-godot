@@ -56,9 +56,9 @@ func _input(event):
 					
 func randomize_target_and_obstacles():
 	# set target to a random position
-	var target_location := HexNavi.get_random_tile_pos()
+	var target_location := HexNavi.cell_to_global(HexNavi.get_random_tile_pos())
 	while target_location == char.global_position:
-		target_location = HexNavi.get_random_tile_pos()
+		target_location = HexNavi.cell_to_global(HexNavi.get_random_tile_pos())
 	$Target.global_position = HexNavi.cell_to_global(target_location)
 	$Target.visible = true
 	#randomize obstacles
